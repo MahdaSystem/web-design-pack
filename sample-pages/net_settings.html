@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<script src="../js/sepehr-darkmode.js"></script>
+	<script src="../js/sepehr-common.js"></script>
+	<link rel="shortcut icon" href="../img/logoSquare.svg">
+	<link rel="stylesheet" href="../css/sepehr.min.css">
+	<link rel="stylesheet" href="../css/sepehr-exp.min.css">
+	<link rel="stylesheet" href="../css/sepehr-docs.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="theme-color" content="#245A9A">
+	<title>Network Settings</title>
+</head>
+
+<body onload="prepareTranslate(); getNetSetting()">
+<div class="docs-container off-canvas off-canvas-sidebar-show">
+	<div class="docs-navbar"><a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar"><i class="n-icon n-icon-menu"></i></a>
+
+	</div>
+	<div class="docs-sidebar off-canvas-sidebar" id="sidebar">
+		<script>showNavs("accordion-settings");</script>
+	</div><a class="off-canvas-overlay" href="#close"></a>
+	<div class="off-canvas-content">
+		<div class="docs-content" id="content">
+			<div class="container" id="navbar">
+			<h3 class="s-title"><i class="n-icon n-icon-network"></i> Network Settings</h3>
+			<p>View and set device networking parameters.</p>
+			</div>
+			
+			<div>
+			
+			<div class="divider" data-content="WiFi"></div>
+			<form id="wifiNetSetting" class="form-horizontal">
+
+				<div class="column">
+				<div class="form-group">
+					<div class="col-2 col-sm-12">
+						<label class="form-label">WiFi Mode</label>
+					</div>
+					<div class="col-7 col-xl-10 col-sm-12">
+						<label class="form-radio tooltip" data-tooltip="Other devices can connect to this device with specifications below">
+						<input type="radio" name="Mode" value="1" exportable><i class="form-icon"></i> Access Point
+						</label>
+						<label class="form-radio tooltip" data-tooltip="Device will attempt to connect the network below">
+						<input type="radio" name="Mode" value="2" checked><i class="form-icon"></i> Station
+						</label>
+					</div>
+				</div>
+				</div>
+
+				<div class="column">
+				<div class="form-group">
+					<div class="col-2 col-sm-12">
+						<label class="form-label" for="SSID">WiFi SSID</label>
+					</div>
+					<div class="col-7 col-xl-10 col-sm-12">
+						<input class="form-input" id="SSID" type="text" maxlength="31" value="" placeholder="SSID" required exportable>
+					</div>
+				</div>
+				</div>
+
+				<div class="column">
+				<div class="form-group">
+					<div class="col-2 col-sm-12">
+						<label class="form-label" for="Pass">WiFi Password</label>
+					</div>
+					<div class="col-7 col-xl-10 col-sm-12">
+						<input class="form-input" id="Pass" maxlength="63" value="" type="text" placeholder="Password" required exportable>
+					</div>
+				</div>
+				</div>
+
+				<br>
+				<br>
+
+				<div class="column">
+				<div class="form-group">
+					<div class="col-2 col-sm-12">
+						<label class="form-label">IP Config</label>
+					</div>
+					<div class="col-7 col-xl-10 col-sm-12">
+						<div class="columns">
+						<div class="column col-3 col-sm-12 tooltip" data-tooltip="Obtain IP configurations from DHCP server in station mode, use default configurations in accesspoint mode">
+							<div class="form-group">
+							<label class="form-switch">
+								<input type="checkbox" id="wifiDHCP" name="DHCP" oninput="_wifiDHCPCheck()" required exportable>
+								<i class="form-icon"></i> Obtain IP configurations automatically
+							</label>
+							</div>
+						</div>
+
+						<div class="divider-vert" data-content="OR"></div>
+
+						<div class="column" id="wifiStaticIPCol">
+							<div class="form-group">
+							<div class="col-4 col-sm-12">
+								<label class="form-label" for="StaticIP">Static Device IP</label>
+							</div>
+							<div class="col-8 col-sm-12">
+								<div class="input-group" id="StaticIP" style="direction: ltr;">
+								<input type="number" max="255" min="0" id="StaticIP0" name="StaticIP0" value="192" class="form-input" placeholder="192" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="StaticIP1" name="StaticIP1" value="168" class="form-input" placeholder="168" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="StaticIP2" name="StaticIP2" value="1" class="form-input" placeholder="1" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="StaticIP3" name="StaticIP3" value="50" class="form-input" placeholder="50" required exportable>
+								</div>
+							</div>
+							</div>
+			
+							<div class="form-group">
+							<div class="col-4 col-sm-12">
+								<label class="form-label" for="SubnetMask">Subnet Mask</label>
+							</div>
+							<div class="col-8 col-sm-12">
+								<div class="input-group" id="SubnetMask" style="direction: ltr;">
+								<input type="number" max="255" min="0" id="SubnetMask0" name="SubnetMask0" value="255" class="form-input" placeholder="255" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="SubnetMask1" name="SubnetMask1" value="255" class="form-input" placeholder="255" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="SubnetMask2" name="SubnetMask2" value="255" class="form-input" placeholder="255" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="SubnetMask3" name="SubnetMask3" value="0" class="form-input" placeholder="0" required exportable>
+								</div>
+							</div>
+							</div>
+			
+							<div class="form-group">
+							<div class="col-4 col-sm-12">
+								<label class="form-label" for="Gateway">Gateway IP</label>
+							</div>
+							<div class="col-8 col-sm-12">
+								<div class="input-group" id="Gateway" style="direction: ltr;">
+								<input type="number" max="255" min="0" id="Gateway0" name="Gateway0" value="192" class="form-input" placeholder="192" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="Gateway1" name="Gateway1" value="168" class="form-input" placeholder="168" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="Gateway2" name="Gateway2" value="1" class="form-input" placeholder="1" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="Gateway3" name="Gateway3" value="1" class="form-input" placeholder="1" required exportable>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+				<div class="column">
+				<div class="form-group">
+					<div class="col-2 col-sm-12">
+						<label class="form-label">DNS Config</label>
+					</div>
+					<div class="col-7 col-xl-10 col-sm-12">
+						<div class="columns">
+						<div class="column col-3 col-sm-12">
+							<div class="form-group tooltip" data-tooltip="Set DNS addresses manualy, otherwise it will be set automatically">
+							<label class="form-switch">
+								<input type="checkbox" id="wifiManualDNS" name="ManualDNS" checked oninput="_wifiManualDNSCheck()" required exportable>
+								<i class="form-icon"></i> Use Manual DNS
+							</label>
+							</div>
+						</div>
+
+						<div class="divider-vert" data-content="OR"></div>
+
+						<div class="column" id="wifiStaticDNSCol">
+							<div class="form-group">
+							<div class="col-4 col-sm-12">
+								<label class="form-label" for="staticDNS1">DNS #1</label>
+							</div>
+							<div class="col-8 col-sm-12">
+								<div class="input-group" id="staticDNS1" style="direction: ltr;">
+								<input type="number" max="255" min="0" id="DNS1_0" name="DNS1_0" value="8" class="form-input" placeholder="192" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="DNS1_1" name="DNS1_1" value="8" class="form-input" placeholder="168" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="DNS1_2" name="DNS1_2" value="8" class="form-input" placeholder="1" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="DNS1_3" name="DNS1_3" value="8" class="form-input" placeholder="50" required exportable>
+								</div>
+							</div>
+							</div>
+						
+							<div class="form-group">
+							<div class="col-4 col-sm-12">
+								<label class="form-label" for="staticDNS2">DNS #2</label>
+							</div>
+							<div class="col-8 col-sm-12">
+								<div class="input-group" id="staticDNS2" style="direction: ltr;">
+								<input type="number" max="255" min="0" id="DNS2_0" name="DNS2_0" value="1" class="form-input" placeholder="255" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="DNS2_1" name="DNS2_1" value="1" class="form-input" placeholder="255" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="DNS2_2" name="DNS2_2" value="1" class="form-input" placeholder="255" required exportable>
+								<span class="input-group-addon">.</span>
+								<input type="number" max="255" min="0" id="DNS2_3" name="DNS2_3" value="1" class="form-input" placeholder="0" required exportable>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</form>
+			</div>
+
+			<script>printWebFooter()</script>
+
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

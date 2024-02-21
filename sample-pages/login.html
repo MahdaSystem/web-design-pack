@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<script src="../js/sepehr-darkmode.js"></script>
+	<script src="../js/sepehr-common.js"></script>
+	<link rel="shortcut icon" href="../img/logoSquare.svg">
+	<link rel="stylesheet" href="../css/sepehr.min.css">
+	<link rel="stylesheet" href="../css/sepehr-exp.min.css">
+	<link rel="stylesheet" href="../css/sepehr-docs.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="theme-color" content="#245A9A">
+	<title>Login</title>
+</head>
+
+<body">
+	<div class="docs-container off-canvas off-canvas-sidebar-show">
+		<div class="off-canvas-content">
+			<div class="section section-hero bg-gray">
+				<div class="grid-hero container grid-lg text-center" style="padding-top: 3rem;">
+					<div style="align-items: center; display: block;">
+						<img style="width: 12rem; height: auto;" src="../img/logoType.svg">
+					</div>
+					<div style="align-items: center; display: inline-flex;">
+						<h1 style="color: #5755d9; font-weight: 700; margin-bottom: 0; margin-left: .5rem; margin-right: .3rem;"><script>printWebName();</script></h1>
+						<span class="label label-secondary text-bold" style="margin-bottom: -0.2rem;">Demo</span>
+					</div>
+					<div class="section bg-gray" style="margin-top: 1.7rem;">
+						<div class="container grid-lg">
+						<div class="columns">
+							<div class="column col-6 col-xs-12 col-sm-9 col-mx-auto">
+							<div class="card" style="border: 0.1rem solid rgb(229, 229, 229); border-radius: 0.5rem;">
+								<div class="card-header">
+									<div class="card-title h6"><i class="n-icon n-icon-lock"></i> Login to the website</div>
+								</div>
+								<div class="card-body">
+									<div class="form-group">
+										<input class="form-input" type="text" id="username" placeholder="Username">
+									</div>
+									<div class="form-group">
+										<input class="form-input" type="password" id="password" placeholder="Password">
+									</div>
+								</div>
+								<div class="card-footer">
+									<a class="btn btn-primary" href="#">Login</a>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="columns">
+							<div class="columns column col-6 col-xs-12 col-mx-auto">
+							<script>
+								const darkmode = new Darkmode({autoMatchOsTheme: false});
+								document.write('\
+								<div class="column col-4 col-sm-12 col-md-7 col-lg-6 col-xl-5">\
+									<div class="btns d-flex p-centered" style="">\
+										<div class="btn-group btn-group-block" style="direction: ltr;">\
+											<a class="btn btn-primary" href="#">فارسی</a>\
+											<a class="btn " href="#">English</a>\
+										</div>\
+									</div>\
+								</div>\
+								<div class="column col-2 col-sm-12 col-ml-auto">\
+									<div class="btns d-flex p-centered" style="">\
+										<div class="btn-group btn-group-block" style="direction: ltr;">\
+											<button id="darkToggle" class="btn btn-secondary">🌓</button>\
+										</div>\
+									</div>\
+								</div>\
+								');
+								document.getElementById("darkToggle").onclick = function() { darkmode.toggle(); }
+							</script>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="section section-footer">
+				<script>printWebFooter()</script>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
