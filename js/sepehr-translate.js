@@ -28,10 +28,7 @@ const translate_fa = {
     "Total" : "کل",
     "Date" : "تاریخ",
     "Time" : "زمان",
-    "DateTime" : "تاریخ و زمان",
-    "Voltage" : "ولتاژ",
-    "Line Voltage" : "ولتاژ خط",
-    "Voltages" : "ولتاژ ها",
+    "Datetime" : "تاریخ و زمان",
     "Delete" : "حذف",
     "Delete All" : "حذف همه",
     "Interval" : "بازه",
@@ -67,8 +64,6 @@ const translate_fa = {
     "Last Update" : "آخرین بروزرسانی",
     "Reset" : "بازنشانی",
     "Last Reset" : "آخرین بازنشانی",
-    "Last Counter Reset" : "آخرین بازنشانی شمارنده",
-    "Last min-max Reset" : "آخرین بازنشانی حداقل-حداکثر",
     "Blank" : "خالی",
     "Never" : "هرگز",
     "Per" : "برحسب",
@@ -154,10 +149,8 @@ const translate_fa = {
     "Note" : "نکته",
     "Success" : "موفق بود",
     "Failed" : "ناموفق بود",
-    "Log Status Changed" : "وضعیت لاگ تغییر یافت",
     "field(s) changed" : "فیلد تغییر یافت",
     "All fields changed" : "تمامی فیلدها تغییر کردند",
-    "Applying changes to this page cause the device to close and create new related log files." : "اعمال تغییر در این صفحه موجب می‌شود تا دستگاه پرونده‌های لاگ مربوطه را بسته و پرونده جدید ایجاد کند.",
     //
 }
 
@@ -224,3 +217,8 @@ function changeLanguage(newLanguage = "en") {
     localStorage.setItem("dispLang", newLanguage);
     location.reload();
 }
+
+// Lazy Apply Page Translations
+document.addEventListener("DOMContentLoaded", () => {
+    prepareTranslate();
+});

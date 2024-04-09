@@ -10,7 +10,7 @@ var webName = "Sepehr";
 
 // AJAX Lazy Load Page Components
 document.addEventListener("DOMContentLoaded", () => {
-	// loadJS('js/sepehr-translate.js', function(){  });
+	// loadJS('../js/sepehr-translate.js', function(){ /* Do Something */ });
 	loadCSS('../css/negara.css', function(){ /* Do Something */ });
 });
 
@@ -32,7 +32,7 @@ function printWebFooter() {
 	</div>\
 	');
 }
-function loadJS(url, implementationCode = null, location = document.body) {
+function loadJS(url, implementationCode = null, location = document.head) {
     var scriptTag = document.createElement('script');
     scriptTag.src = url;
 
@@ -175,8 +175,8 @@ function showNavs(enabledAccordion) {
 						<div class="accordion-body" style="padding: 0 0.5rem;">\
 							<div class="btns d-flex p-centered" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">\
 								<div class="btn-group btn-group-block" style="direction: ltr;">\
-									<a class="btn btn-primary" href="#">فارسی</a>\
-									<a class="btn " href="#">English</a>\
+								<button class="btn '+(myLanguage=="fa"?'btn-primary':'')+'" onclick="changeLanguage(\'fa\');">فارسی</button>\
+								<button class="btn '+(myLanguage=="en"?'btn-primary':'')+'" onclick="changeLanguage(\'en\');">English</button>\
 								</div>\
 							</div>\
 							<div class="btns d-flex p-centered" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">\

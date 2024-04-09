@@ -1,2 +1,2 @@
-# web-design-pack
-A Package to Design Light Websites. Consist of Custom Spectre Lightweight CSS Framework (with RTL), Added Darkmode JS and Negara Lightweight Iconpack.
+# Sepehr web design pack
+A package to design light websites. Consist of customized Spectre lightweight CSS framework (with RTL), plus darkmode JS and Negara lightweight iconpack.
